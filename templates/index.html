@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>COBACH 29</title>
+
+   <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+     <!-- ENCABEZADO -->
+ <header class="header">
+
+    <div class="logo-container">
+        <img
+            src="/static/images/escuela/logo.png"
+            alt="Logo del Colegio de Bachilleres"
+            class="logo"
+        >
+
+        <div class="school-name">
+            <strong>COLEGIO DE BACHILLERES</strong>
+            <span>PLANTEL 29</span>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#escuela">La escuela</a>
+        <a href="#instalaciones">Instalaciones</a>
+        <a href="#actividades">Actividades</a>
+        <a href="#programas">Programas</a>
+    </nav>
+
+</header>
+
+
+    <!-- PORTADA -->
+  <section id="inicio" class="hero">
+
+    <img
+        src="/static/images/escuela/portada.jpeg"
+        alt="Colegio de Bachilleres del Estado de Guerrero Plantel Número 29"
+        class="hero-image"
+    >
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <p class="small-title">
+            COLEGIO DE BACHILLERES DEL ESTADO DE GUERRERO
+        </p>
+
+        <h2>Plantel Número 29</h2>
+
+        <p>
+            Conoce nuestra institución, sus instalaciones,
+            programas, actividades deportivas y culturales.
+        </p>
+
+        <a href="#escuela" class="button">
+            Conocer la escuela
+        </a>
+    </div>
+
+</section>
+
+    <img
+        src="/static/images/escuela/portada.jpeg"
+        alt="Colegio de Bachilleres del Estado de Guerrero Plantel Número 29"
+        class="hero-image"
+    >
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            COLEGIO DE BACHILLERES DEL ESTADO DE GUERRERO
+        </p>
+
+        <h2>Plantel Número 29</h2>
+
+        <p>
+            Conoce nuestra institución, sus instalaciones,
+            programas, actividades deportivas y culturales.
+        </p>
+
+        <a href="#escuela" class="button">
+            Conocer la escuela
+        </a>
+
+    </div>
+
+</section>
+
+            <p class="small-title">COBACH</p>
+
+            <h2>29</h2>
+
+            <p>
+                Aquí colocaremos una presentación de la institución,
+                su identidad y toda la información importante para
+                nuestros estudiantes.
+            </p>
+
+            <a href="#escuela" class="button">
+                Conocer la escuela
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMACIÓN DE LA ESCUELA -->
+    <section id="escuela" class="section">
+
+        <div class="section-title">
+            <p>CONÓCENOS</p>
+            <h2>Información de nuestra escuela</h2>
+        </div>
+
+        <div class="school-info">
+
+            <div class="school-image">
+                <span>FOTO DE LA ESCUELA</span>
+            </div>
+
+            <div class="school-text">
+
+                <h3>Historia</h3>
+
+                <p>
+                    Aquí colocaremos la historia oficial de la
+                    institución.
+                </p>
+
+                <h3>¿Quiénes somos?</h3>
+
+                <p>
+                    Aquí se agregará información sobre la escuela,
+                    su comunidad estudiantil, valores y objetivos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INSTALACIONES -->
+    <section id="instalaciones" class="section gray">
+
+        <div class="section-title">
+            <p>NUESTRO ESPACIO</p>
+            <h2>Instalaciones</h2>
+        </div>
+
+        <div class="gallery">
+
+            <div class="gallery-card">
+                <div class="image-placeholder">
+                    FOTO
+                </div>
+                <h3>Instalación 1</h3>
+                <p>Descripción pendiente.</p>
+            </div>
+
+            <div class="gallery-card">
+                <div class="image-placeholder">
+                    FOTO
+                </div>
+                <h3>Instalación 2</h3>
+                <p>Descripción pendiente.</p>
+            </div>
+
+            <div class="gallery-card">
+                <div class="image-placeholder">
+                    FOTO
+                </div>
+                <h3>Instalación 3</h3>
+                <p>Descripción pendiente.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INVITACIÓN -->
+    <section class="invitation">
+
+        <div>
+
+            <p class="small-title">¿ESTÁS POR TERMINAR LA SECUNDARIA?</p>
+
+            <h2>Tu siguiente etapa comienza aquí</h2>
+
+            <p>
+                Conoce nuestra oferta educativa, actividades,
+                programas y oportunidades para formar parte de
+                nuestra comunidad.
+            </p>
+
+            <button onclick="mostrarMensaje()">
+                Quiero conocer más
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRAMAS SOCIALES -->
+    <section id="programas" class="section">
+
+        <div class="section-title">
+            <p>COMUNIDAD</p>
+            <h2>Programas sociales</h2>
+        </div>
+
+        <div class="cards">
+
+            <article class="card">
+                <div class="card-icon">01</div>
+
+                <h3>Programa social 1</h3>
+
+                <p>
+                    Aquí colocaremos la información del programa.
+                </p>
+
+                <a href="#">Conocer programa →</a>
+            </article>
+
+
+            <article class="card">
+                <div class="card-icon">02</div>
+
+                <h3>Programa social 2</h3>
+
+                <p>
+                    Aquí colocaremos la información del programa.
+                </p>
+
+                <a href="#">Conocer programa →</a>
+            </article>
+
+
+            <article class="card">
+                <div class="card-icon">03</div>
+
+                <h3>Programa social 3</h3>
+
+                <p>
+                    Aquí colocaremos la información del programa.
+                </p>
+
+                <a href="#">Conocer programa →</a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACTIVIDADES -->
+    <section id="actividades" class="section gray">
+
+        <div class="section-title">
+            <p>VIDA ESTUDIANTIL</p>
+            <h2>Actividades y equipos</h2>
+
+            <p>
+                Conoce las actividades deportivas y culturales
+                de nuestra institución.
+            </p>
+        </div>
+
+
+        <div class="activity-grid">
+
+            <a href="#" class="activity basketball">
+
+                <div>
+                    <span>DEPORTE</span>
+                    <h3>Básquetbol</h3>
+                    <p>Historia, trayectoria y logros.</p>
+                </div>
+
+            </a>
+
+
+            <a href="#" class="activity soccer">
+
+                <div>
+                    <span>DEPORTE</span>
+                    <h3>Fútbol</h3>
+                    <p>Historia, trayectoria y logros.</p>
+                </div>
+
+            </a>
+
+
+            <a href="#" class="activity athletics">
+
+                <div>
+                    <span>DEPORTE</span>
+                    <h3>Atletismo</h3>
+                    <p>Historia, trayectoria y logros.</p>
+                </div>
+
+            </a>
+
+
+            <a href="#" class="activity dance">
+
+                <div>
+                    <span>CULTURA</span>
+                    <h3>Baile moderno</h3>
+                    <p>Historia, presentaciones y logros.</p>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <h2>Nombre de la Escuela</h2>
+
+                <p>
+                    Información oficial de nuestra institución.
+                </p>
+            </div>
+
+
+            <div>
+                <h3>Redes sociales</h3>
+
+                <div class="socials">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 Nombre de la Escuela
+        </div>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
