@@ -1,148 +1,417 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <title>Colegio de Bachilleres del Estado de Guerrero | Plantel Número 29</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}">
+    <title>
+        Colegio de Bachilleres del Estado de Guerrero | Plantel 29
+    </title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
 </head>
 
+
+
 <body>
-     <!-- ENCABEZADO -->
- <header class="header">
-
-    <div class="logo-container">
-        <img
-            src="/static/images/escuela/logo.png"
-            alt="Logo del Colegio de Bachilleres"
-            class="logo"
-        >
-
-        <div class="school-name">
-            <strong>COLEGIO DE BACHILLERES</strong>
-            <span>PLANTEL 29</span>
-        </div>
-    </div>
-
-    <nav class="nav">
-        <a href="#inicio">Inicio</a>
-        <a href="#escuela">La escuela</a>
-        <a href="#instalaciones">Instalaciones</a>
-        <a href="#actividades">Actividades</a>
-        <a href="#programas">Programas</a>
-    </nav>
-
-</header>
 
 
-    <!-- PORTADA -->
-  <section id="inicio" class="hero">
+    <!-- ==================================================
+         INTRO DE ENTRADA
+    ================================================== -->
 
-    <img
-        src="/static/images/escuela/portada.jpeg"
-        alt="Colegio de Bachilleres del Estado de Guerrero Plantel Número 29"
-        class="hero-image"
-    >
+    <div id="intro-video">
 
-    <div class="hero-overlay"></div>
+        <div class="intro-content">
 
-    <div class="hero-content">
-        <p class="small-title">
-            COLEGIO DE BACHILLERES DEL ESTADO DE GUERRERO
-        </p>
+            <img
+                src="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}"
+                alt="Logo del Colegio de Bachilleres"
+                class="intro-logo"
+            >
 
-        <h2>Plantel Número 29</h2>
-
-        <p>
-            Conoce nuestra institución, sus instalaciones,
-            programas, actividades deportivas y culturales.
-        </p>
-
-        <a href="#escuela" class="button">
-            Conocer la escuela
-        </a>
-    </div>
-
-</section>
-
-    <img
-        src="/static/images/escuela/portada.jpeg"
-        alt="Colegio de Bachilleres del Estado de Guerrero Plantel Número 29"
-        class="hero-image"
-    >
-
-    <div class="hero-content">
-
-        <p class="small-title">
-            COLEGIO DE BACHILLERES DEL ESTADO DE GUERRERO
-        </p>
-
-        <h2>Plantel Número 29</h2>
-
-        <p>
-            Conoce nuestra institución, sus instalaciones,
-            programas, actividades deportivas y culturales.
-        </p>
-
-        <a href="#escuela" class="button">
-            Conocer la escuela
-        </a>
-
-    </div>
-
-</section>
-
-            <p class="small-title">COBACH</p>
-
-            <h2>29</h2>
+            <h1>
+                COLEGIO DE BACHILLERES
+            </h1>
 
             <p>
-                Aquí colocaremos una presentación de la institución,
-                su identidad y toda la información importante para
-                nuestros estudiantes.
+                PLANTEL 29
             </p>
 
-            <a href="#escuela" class="button">
-                Conocer la escuela
+            <div class="intro-loader"></div>
+
+            <span>
+                Preparando la experiencia...
+            </span>
+
+                   <!-- BOTÓN FLOTANTE DEL BUZÓN -->
+<a href="/buzon" class="buzon-flotante">
+    <span class="buzon-icono">📬</span>
+    <span class="buzon-texto">Buzón</span>
+</a>
+        </div>
+ 
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ENCABEZADO
+    ================================================== -->
+
+    <header class="header">
+
+        <div class="logo-container">
+
+            <img
+                src="{{ url_for('static', filename='images/escuela/logo.png') }}"
+                alt="Logo del Colegio de Bachilleres"
+                class="logo"
+            >
+
+            <div class="school-name">
+
+                <strong>
+                    COLEGIO DE BACHILLERES
+                </strong>
+
+                <span>
+                    PLANTEL 29
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="#inicio">
+                Inicio
             </a>
+
+            <a href="#escuela">
+                La escuela
+            </a>
+
+            <a href="#oferta">
+                Oferta educativa
+            </a>
+
+            <a href="#programas">
+                Programas
+            </a>
+
+            <a href="#instalaciones">
+                Instalaciones
+            </a>
+
+            <a href="#actividades">
+                Actividades
+            </a>
+
+            <a href="#noticias">
+                Noticias
+            </a>
+
+            <a href="/buzon" id="buzon-link">
+                📢 Buzón
+                <span id="buzon-notificacion"></span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         HERO / PORTADA
+    ================================================== -->
+
+    <section id="inicio" class="hero">
+
+        <img
+            src="{{ url_for('static', filename='images/escuela/portada.jpeg') }}"
+            alt="Colegio de Bachilleres del Estado de Guerrero Plantel 29"
+            class="hero-image"
+        >
+
+        <div class="hero-overlay"></div>
+
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                COLEGIO DE BACHILLERES DEL ESTADO DE GUERRERO
+            </p>
+
+            <h2>
+                Plantel Número 29
+            </h2>
+
+            <p>
+                Un espacio para aprender, crecer,
+                desarrollar talentos y construir
+                nuestro futuro.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#escuela"
+                    class="button"
+                >
+                    Conocer la escuela
+                </a>
+
+                <a
+                    href="#oferta"
+                    class="button button-outline"
+                >
+                    Oferta educativa
+                </a>
+
+                <a
+                    href="#actividades"
+                    class="button button-light"
+                >
+                    Ver actividades
+                </a>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- INFORMACIÓN DE LA ESCUELA -->
-    <section id="escuela" class="section">
+
+    <!-- ==================================================
+         DATOS RÁPIDOS
+    ================================================== -->
+
+    <section class="stats">
+
+        <div class="stat">
+
+            <strong>
+                29
+            </strong>
+
+            <span>
+                Plantel
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                12ECB0051C
+            </strong>
+
+            <span>
+                CCT
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                3+
+            </strong>
+
+            <span>
+                Áreas de formación
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                5
+            </strong>
+
+            <span>
+                Actividades destacadas
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         BIENVENIDA
+    ================================================== -->
+
+    <section class="welcome">
+
+        <div class="welcome-content">
+
+            <div class="welcome-text">
+
+                <p class="section-label">
+                    BIENVENIDOS
+                </p>
+
+                <h2>
+                    Tu siguiente etapa
+                    comienza aquí
+                </h2>
+
+                <p>
+                    Bienvenido al Colegio de Bachilleres
+                    del Estado de Guerrero, Plantel Número 29.
+                </p>
+
+                <p>
+                    Nuestra escuela es un espacio donde los
+                    estudiantes pueden desarrollar sus
+                    conocimientos, habilidades, talentos
+                    y proyectos mientras construyen
+                    nuevas experiencias.
+                </p>
+
+                <a
+                    href="#escuela"
+                    class="text-button"
+                >
+                    Conoce nuestra escuela →
+                </a>
+
+            </div>
+
+
+            <div class="welcome-box">
+
+                <div class="welcome-box-inner">
+
+                    <span>
+                        PLANTEL 29
+                    </span>
+
+                    <strong>
+                        FORMACIÓN
+                        <br>
+                        PARA EL FUTURO
+                    </strong>
+
+                    <p>
+                        Educación · Cultura · Deporte
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CONOCE LA ESCUELA
+    ================================================== -->
+
+    <section
+        id="escuela"
+        class="section"
+    >
 
         <div class="section-title">
-            <p>CONÓCENOS</p>
-            <h2>Información de nuestra escuela</h2>
+
+            <p>
+                CONÓCENOS
+            </p>
+
+            <h2>
+                Nuestra escuela
+            </h2>
+
+            <p>
+                Conoce quiénes somos, nuestra identidad
+                y el compromiso que tenemos con nuestra
+                comunidad estudiantil.
+            </p>
+
         </div>
+
 
         <div class="school-info">
 
+
             <div class="school-image">
-                <span>FOTO DE LA ESCUELA</span>
+
+                <span>
+                    FOTO DE LA ESCUELA
+                </span>
+
             </div>
+
 
             <div class="school-text">
 
-                <h3>Historia</h3>
+                <h3>
+                    Historia
+                </h3>
 
                 <p>
-                    Aquí colocaremos la historia oficial de la
-                    institución.
+                    Aquí colocaremos la historia oficial
+                    del Colegio de Bachilleres del Estado
+                    de Guerrero, Plantel Número 29.
                 </p>
 
-                <h3>¿Quiénes somos?</h3>
+
+                <h3>
+                    ¿Quiénes somos?
+                </h3>
 
                 <p>
-                    Aquí se agregará información sobre la escuela,
-                    su comunidad estudiantil, valores y objetivos.
+                    Somos una institución educativa que
+                    forma parte de la comunidad del Estado
+                    de Guerrero y que busca contribuir
+                    al desarrollo académico, personal,
+                    cultural y deportivo de sus estudiantes.
+                </p>
+
+
+                <h3>
+                    Nuestra identidad
+                </h3>
+
+                <p>
+                    Como comunidad educativa promovemos
+                    el aprendizaje, la convivencia,
+                    la responsabilidad, el deporte,
+                    la cultura y el desarrollo integral
+                    de nuestros estudiantes.
                 </p>
 
             </div>
@@ -152,222 +421,993 @@
     </section>
 
 
-    <!-- INSTALACIONES -->
-    <section id="instalaciones" class="section gray">
+
+    <!-- ==================================================
+         OFERTA EDUCATIVA
+    ================================================== -->
+
+    <section
+        id="oferta"
+        class="section gray"
+    >
 
         <div class="section-title">
-            <p>NUESTRO ESPACIO</p>
-            <h2>Instalaciones</h2>
+
+            <p>
+                FORMACIÓN
+            </p>
+
+            <h2>
+                Oferta educativa
+            </h2>
+
+            <p>
+                Conoce algunas de las áreas de formación
+                que puedes encontrar en nuestro plantel.
+            </p>
+
         </div>
+
+
+        <div class="offer-grid">
+
+
+            <!-- TICs -->
+
+            <article class="offer-card">
+
+                <div class="offer-number">
+                    01
+                </div>
+
+                <div class="offer-icon">
+                    💻
+                </div>
+
+                <h3>
+                    TICs
+                </h3>
+
+                <p>
+                    Aprende sobre tecnología,
+                    informática, herramientas digitales
+                    y conocimientos relacionados con
+                    las tecnologías de la información.
+                </p>
+
+                <a href="#">
+                    Conocer capacitación →
+                </a>
+
+            </article>
+
+
+
+            <!-- TURISMO -->
+
+            <article class="offer-card">
+
+                <div class="offer-number">
+                    02
+                </div>
+
+                <div class="offer-icon">
+                    🌎
+                </div>
+
+                <h3>
+                    Turismo
+                </h3>
+
+                <p>
+                    Desarrolla conocimientos relacionados
+                    con el turismo, la atención,
+                    los servicios y el patrimonio
+                    turístico.
+                </p>
+
+                <a href="#">
+                    Conocer capacitación →
+                </a>
+
+            </article>
+
+
+
+            <!-- INGLÉS -->
+
+            <article class="offer-card">
+
+                <div class="offer-number">
+                    03
+                </div>
+
+                <div class="offer-icon">
+                    🇬🇧
+                </div>
+
+                <h3>
+                    Inglés
+                </h3>
+
+                <p>
+                    Fortalece tus habilidades de
+                    comunicación en inglés y desarrolla
+                    herramientas para tu formación
+                    académica y personal.
+                </p>
+
+                <a href="#">
+                    Conocer programa →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PROGRAMAS SOCIALES
+    ================================================== -->
+
+    <section
+        id="programas"
+        class="section programas-section"
+    >
+
+        <div class="section-title">
+
+            <p>
+                COMUNIDAD
+            </p>
+
+            <h2>
+                Programas sociales
+            </h2>
+
+            <p>
+                Conoce los programas y acciones que
+                contribuyen al bienestar, desarrollo
+                y participación de nuestra comunidad.
+            </p>
+
+        </div>
+
+
+        <div class="program-grid">
+
+
+            <!-- PROGRAMA 01: BECA BENITO JUÁREZ -->
+        <article 
+      class="program-card">
+    <div class="program-number">01</div>
+
+    <div class="program-icon">🎓</div>
+
+    <span>APOYO EDUCATIVO</span>
+
+    <h3>Beca Benito Juárez</h3>
+
+    <p>
+        Es un programa de apoyo económico para estudiantes
+        de educación media superior, creado para contribuir
+        a que continúen y concluyan sus estudios.
+    </p>
+
+    <a href="#">
+        Conocer programa →
+    </a>
+</article>
+
+
+<!-- PROGRAMA 02: SEGURO FACULTATIVO IMSS -->
+<article class="program-card">
+    <div class="program-number">02</div>
+
+    <div class="program-icon">🏥</div>
+
+    <span>SEGURIDAD SOCIAL</span>
+
+    <h3>Seguro Facultativo del IMSS</h3>
+
+    <p>
+        Es un servicio de seguridad social que permite a los
+        estudiantes contar con atención médica y otros
+        servicios de salud durante su etapa escolar.
+    </p>
+
+    <a href="#">
+        Conocer programa →
+    </a>
+</article>
+
+
+<!-- PROGRAMA 03: 00000 -->
+<article class="program-card">
+    <div class="program-number">03</div>
+
+    <div class="program-icon">📚</div>
+
+    <span>DESARROLLO</span>
+
+    <h3>00000</h3>
+
+    <p>
+        """"""""
+
+    <a href="#">
+        Conocer programa →
+    </a>
+
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         INSTALACIONES
+    ================================================== -->
+
+    <section
+        id="instalaciones"
+        class="section"
+    >
+
+        <div class="section-title">
+
+            <p>
+                NUESTRO ESPACIO
+            </p>
+
+            <h2>
+                Instalaciones
+            </h2>
+
+            <p>
+                Conoce algunos de los espacios que
+                forman parte de nuestra institución.
+            </p>
+
+        </div>
+
 
         <div class="gallery">
 
-            <div class="gallery-card">
-                <div class="image-placeholder">
-                    FOTO
-                </div>
-                <h3>Instalación 1</h3>
-                <p>Descripción pendiente.</p>
-            </div>
 
-            <div class="gallery-card">
-                <div class="image-placeholder">
-                    FOTO
-                </div>
-                <h3>Instalación 2</h3>
-                <p>Descripción pendiente.</p>
-            </div>
+            <article class="gallery-card">
 
-            <div class="gallery-card">
                 <div class="image-placeholder">
                     FOTO
                 </div>
-                <h3>Instalación 3</h3>
-                <p>Descripción pendiente.</p>
-            </div>
+
+                <h3>
+                    Aulas
+                </h3>
+
+                <p>
+                    Espacios destinados al aprendizaje
+                    y desarrollo académico.
+                </p>
+
+            </article>
+
+
+            <article class="gallery-card">
+
+                <div class="image-placeholder">
+                    FOTO
+                </div>
+
+                <h3>
+                    Laboratorios
+                </h3>
+
+                <p>
+                    Espacios para desarrollar actividades
+                    prácticas y tecnológicas.
+                </p>
+
+            </article>
+
+
+            <article class="gallery-card">
+
+                <div class="image-placeholder">
+                    FOTO
+                </div>
+
+                <h3>
+                    Áreas deportivas
+                </h3>
+
+                <p>
+                    Espacios destinados a la actividad
+                    física y deportiva.
+                </p>
+
+            </article>
+
 
         </div>
 
     </section>
 
 
-    <!-- INVITACIÓN -->
+
+    <!-- ==================================================
+         INVITACIÓN
+    ================================================== -->
+
     <section class="invitation">
 
         <div>
 
-            <p class="small-title">¿ESTÁS POR TERMINAR LA SECUNDARIA?</p>
-
-            <h2>Tu siguiente etapa comienza aquí</h2>
-
-            <p>
-                Conoce nuestra oferta educativa, actividades,
-                programas y oportunidades para formar parte de
-                nuestra comunidad.
+            <p class="small-title">
+                ¿ESTÁS POR TERMINAR LA SECUNDARIA?
             </p>
 
-            <button onclick="mostrarMensaje()">
-                Quiero conocer más
-            </button>
+            <h2>
+                Tu siguiente etapa
+                comienza aquí.
+            </h2>
+
+            <p>
+                Conoce nuestra oferta educativa,
+                nuestras actividades y todo lo que
+                nuestra comunidad tiene para ofrecer.
+            </p>
+
+            <div class="invitation-buttons">
+
+                <a
+                    href="#oferta"
+                    class="invitation-button"
+                >
+                    Ver oferta educativa
+                </a>
+
+                <a
+                    href="#actividades"
+                    class="invitation-button invitation-button-outline"
+                >
+                    Ver actividades
+                </a>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- PROGRAMAS SOCIALES -->
-    <section id="programas" class="section">
+
+    <!-- ==================================================
+         ACTIVIDADES
+    ================================================== -->
+
+    <section
+        id="actividades"
+        class="section gray"
+    >
 
         <div class="section-title">
-            <p>COMUNIDAD</p>
-            <h2>Programas sociales</h2>
-        </div>
-
-        <div class="cards">
-
-            <article class="card">
-                <div class="card-icon">01</div>
-
-                <h3>Programa social 1</h3>
-
-                <p>
-                    Aquí colocaremos la información del programa.
-                </p>
-
-                <a href="#">Conocer programa →</a>
-            </article>
-
-
-            <article class="card">
-                <div class="card-icon">02</div>
-
-                <h3>Programa social 2</h3>
-
-                <p>
-                    Aquí colocaremos la información del programa.
-                </p>
-
-                <a href="#">Conocer programa →</a>
-            </article>
-
-
-            <article class="card">
-                <div class="card-icon">03</div>
-
-                <h3>Programa social 3</h3>
-
-                <p>
-                    Aquí colocaremos la información del programa.
-                </p>
-
-                <a href="#">Conocer programa →</a>
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- ACTIVIDADES -->
-    <section id="actividades" class="section gray">
-
-        <div class="section-title">
-            <p>VIDA ESTUDIANTIL</p>
-            <h2>Actividades y equipos</h2>
 
             <p>
-                Conoce las actividades deportivas y culturales
-                de nuestra institución.
+                VIDA ESTUDIANTIL
             </p>
+
+            <h2>
+                Actividades y equipos
+            </h2>
+
+            <p>
+                El aprendizaje también ocurre fuera
+                del aula. Conoce nuestras actividades
+                deportivas y culturales.
+            </p>
+
         </div>
 
 
         <div class="activity-grid">
 
-            <a href="#" class="activity basketball">
+
+            <a
+                href="#"
+                class="activity basketball"
+            >
 
                 <div>
-                    <span>DEPORTE</span>
-                    <h3>Básquetbol</h3>
-                    <p>Historia, trayectoria y logros.</p>
+
+                    <span>
+                        DEPORTE
+                    </span>
+
+                    <h3>
+                        Básquetbol
+                    </h3>
+
+                    <p>
+                        Historia, trayectoria,
+                        equipos y logros.
+                    </p>
+
                 </div>
 
             </a>
 
 
-            <a href="#" class="activity soccer">
+
+            <a
+                href="#"
+                class="activity soccer"
+            >
 
                 <div>
-                    <span>DEPORTE</span>
-                    <h3>Fútbol</h3>
-                    <p>Historia, trayectoria y logros.</p>
+
+                    <span>
+                        DEPORTE
+                    </span>
+
+                    <h3>
+                        Fútbol
+                    </h3>
+
+                    <p>
+                        Historia, trayectoria,
+                        equipos y logros.
+                    </p>
+
                 </div>
 
             </a>
 
 
-            <a href="#" class="activity athletics">
+
+            <a
+                href="#"
+                class="activity athletics"
+            >
 
                 <div>
-                    <span>DEPORTE</span>
-                    <h3>Atletismo</h3>
-                    <p>Historia, trayectoria y logros.</p>
+
+                    <span>
+                        DEPORTE
+                    </span>
+
+                    <h3>
+                        Atletismo
+                    </h3>
+
+                    <p>
+                        Entrenamientos, competencias
+                        y trayectoria.
+                    </p>
+
                 </div>
 
             </a>
 
 
-            <a href="#" class="activity dance">
+
+            <a
+                href="#"
+                class="activity volleyball"
+            >
 
                 <div>
-                    <span>CULTURA</span>
-                    <h3>Baile moderno</h3>
-                    <p>Historia, presentaciones y logros.</p>
+
+                    <span>
+                        DEPORTE
+                    </span>
+
+                    <h3>
+                        Voleibol
+                    </h3>
+
+                    <p>
+                        Equipos, competencias
+                        y logros.
+                    </p>
+
                 </div>
 
             </a>
+
+
+
+            <a
+                href="#"
+                class="activity dance"
+            >
+
+                <div>
+
+                    <span>
+                        CULTURA
+                    </span>
+
+                    <h3>
+                        Baile moderno
+                    </h3>
+
+                    <p>
+                        Presentaciones, eventos
+                        y trayectoria.
+                    </p>
+
+                </div>
+
+            </a>
+
 
         </div>
 
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- ==================================================
+         NOTICIAS Y AVISOS
+    ================================================== -->
+
+    <section
+        id="noticias"
+        class="section"
+    >
+
+        <div class="section-title">
+
+            <p>
+                MANTENTE INFORMADO
+            </p>
+
+            <h2>
+                Noticias y avisos
+            </h2>
+
+            <p>
+                Información importante para nuestra
+                comunidad estudiantil.
+            </p>
+
+        </div>
+
+
+        <div class="news-grid">
+
+
+            <article class="news-card">
+
+                <div class="news-image">
+                    AVISO
+                </div>
+
+                <div class="news-content">
+
+                    <span>
+                        AVISO ESCOLAR
+                    </span>
+
+                    <h3>
+                        Próximamente
+                    </h3>
+
+                    <p>
+                        Aquí aparecerán comunicados,
+                        avisos y noticias importantes
+                        del plantel.
+                    </p>
+
+                    <a href="#">
+                        Leer más →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="news-card">
+
+                <div class="news-image">
+                    EVENTO
+                </div>
+
+                <div class="news-content">
+
+                    <span>
+                        EVENTOS
+                    </span>
+
+                    <h3>
+                        Actividades del plantel
+                    </h3>
+
+                    <p>
+                        Próximamente podrás consultar
+                        eventos y actividades de nuestra
+                        comunidad.
+                    </p>
+
+                    <a href="#">
+                        Ver evento →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="news-card">
+
+                <div class="news-image">
+                    COMUNIDAD
+                </div>
+
+                <div class="news-content">
+
+                    <span>
+                        COMUNIDAD
+                    </span>
+
+                    <h3>
+                        Noticias estudiantiles
+                    </h3>
+
+                    <p>
+                        Información relacionada con
+                        nuestra comunidad estudiantil.
+                    </p>
+
+                    <a href="/buzon">
+                        Ir al Buzón →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         LOGROS
+    ================================================== -->
+
+    <section class="achievements">
+
+        <div class="achievements-content">
+
+
+            <div class="achievements-title">
+
+                <p>
+                    ORGULLO DEL PLANTEL
+                </p>
+
+                <h2>
+                    Logros y reconocimientos
+                </h2>
+
+                <p>
+                    Este espacio estará dedicado a
+                    destacar los logros académicos,
+                    deportivos, culturales y de nuestra
+                    comunidad estudiantil.
+                </p>
+
+            </div>
+
+
+            <div class="achievement-list">
+
+
+                <div class="achievement">
+
+                    <strong>
+                        01
+                    </strong>
+
+                    <div>
+
+                        <h3>
+                            Logro deportivo
+                        </h3>
+
+                        <p>
+                            Próximamente agregaremos
+                            los logros y reconocimientos
+                            deportivos del plantel.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="achievement">
+
+                    <strong>
+                        02
+                    </strong>
+
+                    <div>
+
+                        <h3>
+                            Logro académico
+                        </h3>
+
+                        <p>
+                            Espacio para reconocer
+                            el desempeño académico
+                            de nuestros estudiantes.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="achievement">
+
+                    <strong>
+                        03
+                    </strong>
+
+                    <div>
+
+                        <h3>
+                            Logro cultural
+                        </h3>
+
+                        <p>
+                            Próximamente podremos
+                            destacar presentaciones
+                            y actividades culturales.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         UBICACIÓN Y CONTACTO
+    ================================================== -->
+
+    <section
+        id="contacto"
+        class="section gray"
+    >
+
+        <div class="section-title">
+
+            <p>
+                ENCUÉNTRANOS
+            </p>
+
+            <h2>
+                Ubicación y contacto
+            </h2>
+
+            <p>
+                Información para conocer nuestra
+                institución y mantenerte comunicado.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <h3>
+                    Ubicación
+                </h3>
+
+                <p>
+                    Colegio de Bachilleres del Estado
+                    de Guerrero, Plantel Número 29.
+                </p>
+
+                <span>
+                    Ubicación oficial próximamente
+                </span>
+
+            </div>
+
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Contacto
+                </h3>
+
+                <p>
+                    Aquí colocaremos los medios
+                    oficiales de contacto del plantel.
+                </p>
+
+                <span>
+                    Información próximamente
+                </span>
+
+            </div>
+
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Redes sociales
+                </h3>
+
+                <p>
+                    Sigue las cuentas oficiales para
+                    conocer noticias y actividades.
+                </p>
+
+                <span>
+                    Enlaces próximamente
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
     <footer>
 
         <div class="footer-content">
 
+
             <div>
-                <h2>Nombre de la Escuela</h2>
+
+                <h2>
+                    Colegio de Bachilleres
+                </h2>
 
                 <p>
-                    Información oficial de nuestra institución.
+                    Plantel Número 29
                 </p>
+
+                <p>
+                    Colegio de Bachilleres del Estado
+                    de Guerrero
+                </p>
+
             </div>
 
 
             <div>
-                <h3>Redes sociales</h3>
+
+                <h3>
+                    Navegación
+                </h3>
 
                 <div class="socials">
-                    <a href="#">Facebook</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">TikTok</a>
+
+                    <a href="#inicio">
+                        Inicio
+                    </a>
+
+                    <a href="#escuela">
+                        Escuela
+                    </a>
+
+                    <a href="#oferta">
+                        Oferta educativa
+                    </a>
+
+                    <a href="#programas">
+                        Programas
+                    </a>
+
+                    <a href="/buzon">
+                        Buzón
+                    </a>
+
                 </div>
 
             </div>
+
+
+            <div>
+
+                <h3>
+                    Redes sociales
+                </h3>
+
+                <div class="socials">
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        TikTok
+                    </a>
+
+                </div>
+
+            </div>
+
 
         </div>
 
 
         <div class="copyright">
-            © 2026 Nombre de la Escuela
+
+            © 2026 Colegio de Bachilleres del Estado de Guerrero
+            · Plantel Número 29
+
         </div>
 
     </footer>
 
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
 
 </body>
+
 </html>
