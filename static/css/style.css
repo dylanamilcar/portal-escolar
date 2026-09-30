@@ -1374,233 +1374,152 @@ nav a:hover {
    ACTIVIDADES
 ================================================== */
 
-#actividades {
-
-    background: var(--verde);
-
-}
-
-
-#actividades .section-title > p:first-child {
-
-    color: var(--blanco);
-
-}
-
-
-#actividades .section-title h2 {
-
-    color: var(--blanco);
-
-}
-
-
-#actividades .section-title > p:last-child {
-
-    color: var(--blanco);
-
-    opacity: 0.9;
-
-}
-
-
 .activity-grid {
-
-    width: min(1200px, 92%);
-
+    max-width: 1200px;
     margin: auto;
 
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-
 }
 
-
-/* TARJETAS */
-
 .activity {
-
     position: relative;
-
     min-height: 300px;
 
     padding: 0;
 
     display: flex;
-
     align-items: flex-end;
 
-    color: var(--blanco);
-
+    color: #FFFFFF;
     text-decoration: none;
 
-    border-radius: 10px;
-
+    border-radius: 12px;
     overflow: hidden;
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-
-    background-size: cover;
-
     background-position: center;
-
+    background-size: cover;
     background-repeat: no-repeat;
 
+    transition: 0.3s ease;
 }
 
-
-/* FOTOS */
-
-.activity.basketball {
-
-    background-image:
-        url("../images/escuela/equipo-bas.jfif");
-
-}
-
-
-.activity.soccer {
-
-    background-image:
-        url("../images/escuela/equipo-fut.jfif");
-
-}
-
-
-/* OSCURECIMIENTO */
-
+/* OSCURECIMIENTO DE LA FOTO */
 .activity::after {
-
     content: "";
 
     position: absolute;
-
     inset: 0;
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(11, 31, 58, 0.96),
-            rgba(11, 31, 58, 0.45),
-            rgba(11, 31, 58, 0.05)
-        );
+    background: linear-gradient(
+        to top,
+        rgba(11, 31, 58, 0.90),
+        rgba(11, 31, 58, 0.30),
+        rgba(11, 31, 58, 0.05)
+    );
 
     z-index: 1;
-
 }
 
-
-/* TEXTO */
-
+/* TEXTO ENCIMA DE LA FOTO */
 .activity > div {
-
     position: relative;
 
     z-index: 2;
 
     width: 100%;
+    box-sizing: border-box;
 
-    padding: 35px;
+    padding: 30px;
 
+    color: #FFFFFF;
 }
 
-
 .activity span {
+    display: block;
 
     color: #7CFFA8;
 
     font-size: 11px;
-
-    font-weight: 900;
+    font-weight: bold;
 
     letter-spacing: 2px;
 
+    margin-bottom: 8px;
 }
-
 
 .activity h3 {
+    margin: 0 0 8px;
 
-    color: var(--blanco);
+    color: #FFFFFF;
 
     font-size: 35px;
-
-    line-height: 1;
-
-    margin: 9px 0;
-
+    line-height: 1.1;
 }
-
 
 .activity p {
+    margin: 0;
 
-    color: var(--blanco);
+    color: #FFFFFF;
 
-    opacity: 0.9;
+    font-size: 15px;
+    line-height: 1.5;
 
+    opacity: 0.95;
 }
 
-
-/* HOVER */
-
-.activity:hover {
-
-    transform:
-        translateY(-7px);
-
-    box-shadow:
-
-        0 18px 35px
-        rgba(11, 31, 58, 0.25);
-
+/* FOTO DE BÁSQUETBOL */
+.activity.basketball {
+    background-image:
+        url("../images/escuela/equipo-bas.jfif");
 }
 
+/* FOTO DE FÚTBOL */
+.activity.soccer {
+    background-image:
+        url("../images/escuela/equipo-fut.jfif");
+}
 
-/* ==================================================
-   ACTIVIDADES SIN FOTO
-================================================== */
-
+/* LAS DEMÁS ACTIVIDADES */
 .activity.athletics {
-
     background:
         linear-gradient(
             135deg,
-            var(--azul),
-            var(--verde)
+            #0B1F3A,
+            #009B4D
         );
-
 }
-
 
 .activity.volleyball {
-
     background:
         linear-gradient(
             135deg,
-            var(--azul),
-            var(--verde-oscuro)
+            #009B4D,
+            #0B1F3A
         );
-
 }
-
 
 .activity.dance {
-
-    grid-column: span 2;
-
     background:
         linear-gradient(
             135deg,
-            var(--verde-oscuro),
-            var(--azul)
+            #009B4D,
+            #0B1F3A
         );
 
+    grid-column: span 2;
 }
+
+/* EFECTO AL PASAR EL MOUSE */
+.activity:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.25);
+}
+
 
 
 /* ==================================================
