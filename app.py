@@ -8,5 +8,10 @@ def inicio():
     return render_template("index.html")
 
 
+@app.route("/buzon")
+def buzon():
+    return render_template("buzon.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buzón estudiantil | Plantel 29</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/buzon.css') }}"
+    >
+</head>
+
+<body>
+
+    <header class="buzon-header">
+
+        <a href="/" class="logo-link">
+
+            <img
+                src="{{ url_for('static', filename='images/escuela/logo.png') }}"
+                alt="Colegio de Bachilleres Plantel 29"
+            >
+
+            <div>
+                <strong>COLEGIO DE BACHILLERES</strong>
+                <span>PLANTEL 29</span>
+            </div>
+
+        </a>
+
+        <a href="/" class="inicio-btn">
+            ← Volver al inicio
+        </a>
+
+    </header>
+
+
+    <main class="buzon-main">
+
+        <section class="buzon-hero">
+
+            <div class="buzon-icon">
+                📬
+            </div>
+
+            <span class="etiqueta">
+                PARTICIPACIÓN ESTUDIANTIL
+            </span>
+
+            <h1>
+                Buzón estudiantil
+            </h1>
+
+            <p>
+                Tu opinión ayuda a conocer las ideas, dudas y propuestas
+                de nuestra comunidad escolar.
+            </p>
+
+        </section>
+
+
+        <section class="buzon-card">
+
+            <div class="form-header">
+
+                <h2>
+                    Comparte tu mensaje
+                </h2>
+
+                <p>
+                    Completa el formulario y envía tu comentario.
+                </p>
+
+            </div>
+
+
+            <form action="#" method="POST">
+
+
+                <div class="campo">
+
+                    <label for="tipo">
+                        Tipo de mensaje
+                    </label>
+
+                    <select id="tipo" name="tipo" required>
+
+                        <option value="">
+                            Selecciona una opción
+                        </option>
+
+                        <option value="sugerencia">
+                            💡 Sugerencia
+                        </option>
+
+                        <option value="felicitacion">
+                            ⭐ Felicitación
+                        </option>
+
+                        <option value="duda">
+                            ❓ Duda
+                        </option>
+
+                        <option value="reporte">
+                            📢 Reporte
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="mensaje">
+                        Tu mensaje
+                    </label>
+
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        rows="7"
+                        maxlength="1000"
+                        placeholder="Escribe aquí tu mensaje..."
+                        required
+                    ></textarea>
+
+                    <small>
+                        Máximo 1000 caracteres.
+                    </small>
+
+                </div>
+
+
+                <div class="anonimo">
+
+                    <input
+                        type="checkbox"
+                        id="anonimo"
+                        name="anonimo"
+                    >
+
+                    <label for="anonimo">
+                        Quiero enviar mi mensaje de forma anónima.
+                    </label>
+
+                </div>
+
+
+                <div class="aviso">
+
+                    <strong>
+                        🛡️ Uso responsable
+                    </strong>
+
+                    <p>
+                        Utiliza este espacio con respeto. No incluyas datos
+                        personales, insultos, amenazas ni acusaciones sin fundamento.
+                    </p>
+
+                </div>
+
+
+                <button type="submit" class="enviar-btn">
+                    Enviar mensaje
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer class="buzon-footer">
+
+        <p>
+            Colegio de Bachilleres del Estado de Guerrero
+        </p>
+
+        <span>
+            Plantel Número 29 · CCT 12ECB0051C
+        </span>
+
+    </footer>
+
+</body>
+
+</html>
