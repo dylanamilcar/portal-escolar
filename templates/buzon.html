@@ -47,6 +47,9 @@
 
     <main class="buzon-main">
 
+
+        <!-- ENCABEZADO -->
+
         <section class="buzon-hero">
 
             <div class="buzon-icon">
@@ -62,56 +65,63 @@
             </h1>
 
             <p>
-                Tu opinión ayuda a conocer las ideas, dudas y propuestas
-                de nuestra comunidad escolar.
+                Comparte ideas, dudas, sugerencias o felicitaciones
+                con la comunidad escolar.
             </p>
 
         </section>
 
+
+
+        <!-- FORMULARIO -->
 
         <section class="buzon-card">
 
             <div class="form-header">
 
                 <h2>
-                    Comparte tu mensaje
+                    ¿Qué quieres compartir?
                 </h2>
 
                 <p>
-                    Completa el formulario y envía tu comentario.
+                    Tu publicación será completamente anónima.
                 </p>
 
             </div>
 
 
-            <form action="#" method="POST">
+            <form action="/buzon" method="POST">
 
 
                 <div class="campo">
 
                     <label for="tipo">
-                        Tipo de mensaje
+                        Tipo de publicación
                     </label>
 
-                    <select id="tipo" name="tipo" required>
+                    <select
+                        id="tipo"
+                        name="tipo"
+                        required
+                    >
 
                         <option value="">
                             Selecciona una opción
                         </option>
 
-                        <option value="sugerencia">
+                        <option value="Sugerencia">
                             💡 Sugerencia
                         </option>
 
-                        <option value="felicitacion">
+                        <option value="Felicitación">
                             ⭐ Felicitación
                         </option>
 
-                        <option value="duda">
+                        <option value="Duda">
                             ❓ Duda
                         </option>
 
-                        <option value="reporte">
+                        <option value="Reporte">
                             📢 Reporte
                         </option>
 
@@ -123,15 +133,15 @@
                 <div class="campo">
 
                     <label for="mensaje">
-                        Tu mensaje
+                        Mensaje
                     </label>
 
                     <textarea
                         id="mensaje"
                         name="mensaje"
-                        rows="7"
+                        rows="6"
                         maxlength="1000"
-                        placeholder="Escribe aquí tu mensaje..."
+                        placeholder="Escribe tu mensaje..."
                         required
                     ></textarea>
 
@@ -142,17 +152,13 @@
                 </div>
 
 
-                <div class="anonimo">
+                <div class="anonimo-info">
 
-                    <input
-                        type="checkbox"
-                        id="anonimo"
-                        name="anonimo"
-                    >
+                    👤 <strong>Publicación anónima</strong>
 
-                    <label for="anonimo">
-                        Quiero enviar mi mensaje de forma anónima.
-                    </label>
+                    <span>
+                        No se mostrará tu nombre.
+                    </span>
 
                 </div>
 
@@ -160,24 +166,139 @@
                 <div class="aviso">
 
                     <strong>
-                        🛡️ Uso responsable
+                        🛡️ Espacio de convivencia
                     </strong>
 
                     <p>
-                        Utiliza este espacio con respeto. No incluyas datos
-                        personales, insultos, amenazas ni acusaciones sin fundamento.
+                        Publica con respeto. No compartas datos personales,
+                        amenazas, insultos ni acusaciones contra otras personas.
                     </p>
 
                 </div>
 
 
-                <button type="submit" class="enviar-btn">
-                    Enviar mensaje
+                <button
+                    type="submit"
+                    class="enviar-btn"
+                >
+                    📤 Publicar mensaje
                 </button>
 
             </form>
 
         </section>
+
+
+
+        <!-- PUBLICACIONES -->
+
+        <section class="publicaciones">
+
+            <div class="publicaciones-header">
+
+                <div>
+
+                    <span class="etiqueta-publicaciones">
+                        COMUNIDAD ESCOLAR
+                    </span>
+
+                    <h2>
+                        Publicaciones
+                    </h2>
+
+                </div>
+
+                <span class="contador">
+                    {{ publicaciones|length }}
+                    publicación{% if publicaciones|length != 1 %}es{% endif %}
+                </span>
+
+            </div>
+
+
+            {% if publicaciones %}
+
+                <div class="muro">
+
+                    {% for publicacion in publicaciones %}
+
+                        <article class="publicacion">
+
+                            <div class="publicacion-top">
+
+                                <span class="tipo-publicacion">
+
+                                    {% if publicacion["tipo"] == "Sugerencia" %}
+                                        💡 Sugerencia
+
+                                    {% elif publicacion["tipo"] == "Felicitación" %}
+                                        ⭐ Felicitación
+
+                                    {% elif publicacion["tipo"] == "Duda" %}
+                                        ❓ Duda
+
+                                    {% elif publicacion["tipo"] == "Reporte" %}
+                                        📢 Reporte
+
+                                    {% else %}
+                                        📬 Publicación
+                                    {% endif %}
+
+                                </span>
+
+
+                                <span class="anonimo">
+
+                                    👤 Anónimo
+
+                                </span>
+
+                            </div>
+
+
+                            <p class="mensaje">
+
+                                {{ publicacion["mensaje"] }}
+
+                            </p>
+
+
+                            <div class="publicacion-footer">
+
+                                <span>
+                                    🕒 {{ publicacion["fecha"] }}
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <div class="sin-publicaciones">
+
+                    <div>
+                        💬
+                    </div>
+
+                    <h3>
+                        Todavía no hay publicaciones
+                    </h3>
+
+                    <p>
+                        Sé la primera persona en compartir algo con la comunidad.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
 
     </main>
 
@@ -193,6 +314,7 @@
         </span>
 
     </footer>
+
 
 </body>
 
