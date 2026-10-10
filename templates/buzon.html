@@ -203,29 +203,32 @@
 
 
     <script>
+    const mensajes = document.getElementById("mensajes");
 
-        const mensajes = document.getElementById("mensajes");
-
+    function bajarAlUltimoMensaje() {
         if (mensajes) {
             mensajes.scrollTop = mensajes.scrollHeight;
         }
+    }
+
+    // Al abrir el buzón
+    bajarAlUltimoMensaje();
 
 
-        const textarea = document.querySelector(".escribir textarea");
+    const textarea = document.querySelector(".escribir textarea");
 
-        if (textarea) {
+    if (textarea) {
 
-            textarea.addEventListener("input", function () {
+        textarea.addEventListener("input", function () {
 
-                this.style.height = "auto";
+            this.style.height = "auto";
 
-                this.style.height =
-                    Math.min(this.scrollHeight, 120) + "px";
+            this.style.height =
+                Math.min(this.scrollHeight, 120) + "px";
 
-            });
+        });
 
-        }
-
+    }
     </script>
 
 </body>

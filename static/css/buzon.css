@@ -223,22 +223,20 @@ body {
 ============================== */
 
 .mensajes {
-
     flex: 1;
-
     min-height: 0;
 
     padding: 20px;
 
     display: flex;
-
     flex-direction: column;
+    justify-content: flex-start;
 
     gap: 10px;
 
     overflow-y: auto;
-
     scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
 
     background:
         linear-gradient(
@@ -246,7 +244,6 @@ body {
             rgba(233,238,243,.94)
         );
 }
-
 
 /* BARRA DE SCROLL */
 
