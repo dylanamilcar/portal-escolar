@@ -7,457 +7,718 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+
     background: #0B1F3A;
-    color: #172033;
+
     min-height: 100vh;
+
+    color: #172033;
+
+    overflow: hidden;
 }
 
 
-/* HEADER */
+/* ==============================
+   ENCABEZADO
+============================== */
 
-.buzon-header {
-    width: 100%;
-    min-height: 85px;
+.canal-header {
 
-    padding: 14px 6%;
+    height: 72px;
+
+    padding: 10px 5%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    gap: 20px;
-
     background: #0B1F3A;
 
     border-bottom: 2px solid #009B4D;
+
+    position: relative;
+
+    z-index: 10;
 }
 
 
-.logo-link {
+.canal-identidad {
+
     display: flex;
     align-items: center;
-    gap: 14px;
 
-    color: #FFFFFF;
+    gap: 12px;
+
     text-decoration: none;
+
+    color: white;
 }
 
 
-.logo-link img {
-    width: 58px;
-    height: 58px;
+.canal-identidad img {
+
+    width: 48px;
+    height: 48px;
 
     object-fit: contain;
 }
 
 
-.logo-link div {
+.canal-identidad div {
+
     display: flex;
     flex-direction: column;
+
+    gap: 3px;
 }
 
 
-.logo-link strong {
+.canal-identidad strong {
+
     font-size: 16px;
-    letter-spacing: .5px;
 }
 
 
-.logo-link span {
-    margin-top: 4px;
+.canal-identidad span {
 
-    font-size: 12px;
-    color: #FFFFFF;
-    opacity: .8;
+    font-size: 11px;
+
+    color: rgba(255,255,255,.7);
 }
 
 
-.inicio-btn {
-    padding: 11px 18px;
+.volver {
 
-    border: 1px solid rgba(255,255,255,.35);
-    border-radius: 30px;
+    padding: 9px 17px;
 
-    color: #FFFFFF;
+    border: 1px solid rgba(255,255,255,.25);
+
+    border-radius: 20px;
+
+    color: white;
+
     text-decoration: none;
 
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 13px;
 
-    transition: .25s ease;
+    font-weight: bold;
+
+    transition: .2s;
 }
 
 
-.inicio-btn:hover {
+.volver:hover {
+
     background: #009B4D;
+
     border-color: #009B4D;
 }
 
 
-/* CONTENIDO */
+/* ==============================
+   CONTENEDOR
+============================== */
 
-.buzon-main {
+.buzon-contenedor {
+
+    height: calc(100vh - 72px);
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+/* ==============================
+   TARJETA DEL CHAT
+============================== */
+
+.chat {
+
     width: 100%;
 
-    padding: 70px 20px 90px;
+    max-width: 850px;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #E9EEF3;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.35);
+}
+
+
+/* ==============================
+   INFORMACIÓN DEL CANAL
+============================== */
+
+.chat-info {
+
+    min-height: 82px;
+
+    padding: 12px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    flex-shrink: 0;
+
+    background: #FFFFFF;
+
+    border-bottom: 1px solid #D9DEE4;
+}
+
+
+.chat-logo {
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #009B4D;
+
+    font-size: 24px;
+}
+
+
+.chat-info h1 {
+
+    color: #0B1F3A;
+
+    font-size: 17px;
+
+    margin-bottom: 4px;
+}
+
+
+.chat-info p {
+
+    color: #667085;
+
+    font-size: 11px;
+}
+
+
+/* ==============================
+   MENSAJES
+============================== */
+
+.mensajes {
+
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    overflow-y: auto;
+
+    scroll-behavior: smooth;
 
     background:
         linear-gradient(
-            180deg,
-            #0B1F3A 0%,
-            #0B1F3A 38%,
-            #009B4D 100%
+            rgba(233,238,243,.94),
+            rgba(233,238,243,.94)
         );
 }
 
 
-/* HERO */
+/* BARRA DE SCROLL */
 
-.buzon-hero {
-    max-width: 800px;
+.mensajes::-webkit-scrollbar {
 
-    margin: 0 auto 40px;
-
-    text-align: center;
-
-    color: #FFFFFF;
+    width: 7px;
 }
 
 
-.buzon-icon {
-    width: 80px;
-    height: 80px;
+.mensajes::-webkit-scrollbar-track {
 
-    margin: 0 auto 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #009B4D;
-
-    border-radius: 50%;
-
-    font-size: 38px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    background: transparent;
 }
 
 
-.etiqueta {
-    display: inline-block;
+.mensajes::-webkit-scrollbar-thumb {
 
-    margin-bottom: 12px;
+    background: #AAB4BE;
 
-    font-size: 12px;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    color: #FFFFFF;
+    border-radius: 10px;
 }
 
 
-.buzon-hero h1 {
-    margin-bottom: 14px;
+/* ==============================
+   MENSAJE
+============================== */
 
-    font-size: clamp(36px, 6vw, 58px);
-}
+.mensaje {
 
+    width: fit-content;
 
-.buzon-hero p {
-    max-width: 650px;
+    max-width: 78%;
 
-    margin: auto;
+    padding: 11px 13px 8px;
 
-    line-height: 1.7;
-
-    font-size: 17px;
-
-    color: rgba(255,255,255,.9);
-}
-
-
-/* TARJETA */
-
-.buzon-card {
-    max-width: 760px;
-
-    margin: auto;
-
-    padding: 40px;
+    border-radius: 10px;
 
     background: #FFFFFF;
 
-    border-radius: 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.12);
 
-    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    align-self: flex-start;
+
+    position: relative;
 }
 
 
-.form-header {
-    margin-bottom: 30px;
+/* PEQUEÑA PUNTA DEL MENSAJE */
+
+.mensaje::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -7px;
+
+    top: 0;
+
+    width: 0;
+    height: 0;
+
+    border-top: 8px solid #FFFFFF;
+
+    border-left: 8px solid transparent;
 }
 
 
-.form-header h2 {
-    margin-bottom: 8px;
+/* ==============================
+   AUTOR
+============================== */
 
-    font-size: 28px;
+.mensaje-autor {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 7px;
+}
+
+
+.avatar {
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #EAF8F0;
+
+    font-size: 14px;
+}
+
+
+.autor-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.autor-info strong {
 
     color: #0B1F3A;
+
+    font-size: 12px;
 }
 
 
-.form-header p {
+.autor-info span {
+
+    color: #009B4D;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   TEXTO DEL MENSAJE
+============================== */
+
+.mensaje-texto {
+
+    color: #172033;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ==============================
+   HORA
+============================== */
+
+.mensaje-hora {
+
+    margin-top: 5px;
+
+    text-align: right;
+
+    color: #8A96A3;
+
+    font-size: 9px;
+}
+
+
+/* ==============================
+   SIN MENSAJES
+============================== */
+
+.sin-mensajes {
+
+    margin: auto;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    text-align: center;
+
     color: #667085;
 }
 
 
-/* CAMPOS */
+.sin-mensajes div {
 
-.campo {
-    margin-bottom: 24px;
+    font-size: 40px;
 }
 
 
-.campo label {
-    display: block;
-
-    margin-bottom: 9px;
+.sin-mensajes strong {
 
     color: #0B1F3A;
 
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 16px;
 }
 
 
-.campo select,
-.campo textarea {
-    width: 100%;
-
-    border: 1px solid #D5D9E0;
-    border-radius: 10px;
-
-    background: #F8FAFC;
-
-    padding: 14px;
-
-    font-family: inherit;
-    font-size: 15px;
-
-    outline: none;
-
-    transition: .2s ease;
-}
-
-
-.campo select:focus,
-.campo textarea:focus {
-    border-color: #009B4D;
-
-    box-shadow: 0 0 0 3px rgba(0,155,77,.12);
-
-    background: #FFFFFF;
-}
-
-
-.campo textarea {
-    resize: vertical;
-
-    min-height: 160px;
-}
-
-
-.campo small {
-    display: block;
-
-    margin-top: 6px;
-
-    color: #7A8494;
+.sin-mensajes span {
 
     font-size: 12px;
 }
 
 
-/* ANÓNIMO */
+/* ==============================
+   ESCRIBIR
+============================== */
 
-.anonimo {
+.escribir {
+
+    flex-shrink: 0;
+
+    padding: 10px 14px 9px;
+
+    background: #F0F2F5;
+
+    border-top: 1px solid #D9DEE4;
+}
+
+
+.escribir form {
+
     display: flex;
 
-    align-items: flex-start;
+    align-items: flex-end;
 
-    gap: 10px;
-
-    margin-bottom: 24px;
+    gap: 8px;
 }
 
 
-.anonimo input {
-    width: 17px;
-    height: 17px;
+.escribir select {
 
-    margin-top: 2px;
+    height: 43px;
 
-    accent-color: #009B4D;
-}
+    padding: 0 10px;
 
+    border: none;
 
-.anonimo label {
+    border-radius: 22px;
+
+    background: #FFFFFF;
+
     color: #344054;
 
-    font-size: 14px;
+    font-size: 11px;
 
-    line-height: 1.5;
+    outline: none;
 
     cursor: pointer;
 }
 
 
-/* AVISO */
+.escribir textarea {
 
-.aviso {
-    margin-bottom: 25px;
+    flex: 1;
 
-    padding: 17px 18px;
+    min-height: 43px;
 
-    border-left: 4px solid #009B4D;
+    max-height: 120px;
 
-    border-radius: 8px;
-
-    background: #F0FDF4;
-}
-
-
-.aviso strong {
-    display: block;
-
-    margin-bottom: 5px;
-
-    color: #0B1F3A;
-}
-
-
-.aviso p {
-    color: #475467;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-}
-
-
-/* BOTÓN */
-
-.enviar-btn {
-    width: 100%;
+    padding: 12px 15px;
 
     border: none;
-    border-radius: 10px;
 
-    padding: 15px;
+    border-radius: 22px;
+
+    background: #FFFFFF;
+
+    color: #172033;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    resize: none;
+
+    outline: none;
+
+    overflow-y: auto;
+}
+
+
+.escribir textarea::placeholder {
+
+    color: #98A2B3;
+}
+
+
+.escribir button {
+
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
 
     background: #009B4D;
 
     color: #FFFFFF;
 
-    font-size: 16px;
-    font-weight: 800;
+    font-size: 19px;
+
+    font-weight: bold;
 
     cursor: pointer;
 
-    transition: .25s ease;
+    transition: .2s;
 }
 
 
-.enviar-btn:hover {
-    background: #0B1F3A;
-
-    transform: translateY(-2px);
-}
-
-
-/* FOOTER */
-
-.buzon-footer {
-    padding: 30px 20px;
-
-    text-align: center;
+.escribir button:hover {
 
     background: #0B1F3A;
 
-    color: #FFFFFF;
+    transform: scale(1.04);
 }
 
 
-.buzon-footer p {
-    margin-bottom: 7px;
+.escribir small {
 
-    font-weight: 700;
+    display: block;
+
+    margin: 6px 4px 0;
+
+    color: #98A2B3;
+
+    font-size: 9px;
 }
 
 
-.buzon-footer span {
-    font-size: 12px;
-
-    opacity: .7;
-}
-
-
-/* CELULAR */
+/* ==============================
+   CELULAR
+============================== */
 
 @media (max-width: 600px) {
 
-    .buzon-header {
-        padding: 12px 4%;
+    body {
 
-        align-items: flex-start;
+        overflow: hidden;
     }
 
 
-    .logo-link img {
-        width: 48px;
-        height: 48px;
+    .canal-header {
+
+        height: 64px;
+
+        padding: 8px 3%;
     }
 
 
-    .logo-link strong {
-        font-size: 13px;
+    .canal-identidad img {
+
+        width: 40px;
+        height: 40px;
     }
 
 
-    .logo-link span {
-        font-size: 10px;
+    .canal-identidad strong {
+
+        font-size: 14px;
     }
 
 
-    .inicio-btn {
-        padding: 9px 12px;
+    .canal-identidad span {
 
-        font-size: 12px;
+        font-size: 9px;
     }
 
 
-    .buzon-main {
-        padding: 50px 15px 70px;
+    .volver {
+
+        padding: 7px 11px;
+
+        font-size: 11px;
     }
 
 
-    .buzon-card {
-        padding: 25px 20px;
+    .buzon-contenedor {
 
-        border-radius: 14px;
+        height: calc(100vh - 64px);
+
+        padding: 0;
     }
 
 
-    .buzon-hero h1 {
-        font-size: 38px;
+    .chat {
+
+        max-width: none;
+
+        height: 100%;
+
+        border-radius: 0;
     }
 
 
-    .buzon-hero p {
+    .chat-info {
+
+        min-height: 70px;
+
+        padding: 9px 13px;
+    }
+
+
+    .chat-logo {
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 20px;
+    }
+
+
+    .chat-info h1 {
+
         font-size: 15px;
+    }
+
+
+    .chat-info p {
+
+        font-size: 9px;
+    }
+
+
+    .mensajes {
+
+        padding: 15px 10px;
+    }
+
+
+    .mensaje {
+
+        max-width: 88%;
+    }
+
+
+    .mensaje-texto {
+
+        font-size: 14px;
+    }
+
+
+    .escribir {
+
+        padding: 8px;
+    }
+
+
+    .escribir select {
+
+        width: 55px;
+
+        padding: 0 5px;
+    }
+
+
+    .escribir textarea {
+
+        font-size: 14px;
+    }
+
+
+    .escribir small {
+
+        display: none;
     }
 
 }

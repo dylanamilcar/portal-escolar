@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Buzón estudiantil | Plantel 29</title>
+    <title>Buzón | Plantel 29</title>
 
     <link
         rel="icon"
@@ -22,91 +21,139 @@
 
 <body>
 
-    <header class="buzon-header">
+    <!-- ENCABEZADO -->
 
-        <a href="/" class="logo-link">
+    <header class="canal-header">
+
+        <a href="/" class="canal-identidad">
 
             <img
-                src="{{ url_for('static', filename='images/escuela/logo.png') }}"
-                alt="Colegio de Bachilleres Plantel 29"
+                src="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}"
+                alt="Plantel 29"
             >
 
             <div>
-                <strong>COLEGIO DE BACHILLERES</strong>
-                <span>PLANTEL 29</span>
+                <strong>Buzón Plantel 29</strong>
+                <span>Canal de la comunidad escolar</span>
             </div>
 
         </a>
 
-        <a href="/" class="inicio-btn">
-            ← Volver al inicio
+        <a href="/" class="volver">
+            Inicio
         </a>
 
     </header>
 
 
-    <main class="buzon-main">
+    <!-- TARJETA PRINCIPAL -->
 
+    <main class="buzon-contenedor">
 
-        <!-- ENCABEZADO -->
+        <section class="chat">
 
-        <section class="buzon-hero">
+            <!-- INFORMACIÓN DEL CANAL -->
 
-            <div class="buzon-icon">
-                📬
-            </div>
+            <div class="chat-info">
 
-            <span class="etiqueta">
-                PARTICIPACIÓN ESTUDIANTIL
-            </span>
+                <div class="chat-logo">
+                    📢
+                </div>
 
-            <h1>
-                Buzón estudiantil
-            </h1>
+                <div>
+                    <h1>Buzón Plantel 29</h1>
 
-            <p>
-                Comparte ideas, dudas, sugerencias o felicitaciones
-                con la comunidad escolar.
-            </p>
-
-        </section>
-
-
-
-        <!-- FORMULARIO -->
-
-        <section class="buzon-card">
-
-            <div class="form-header">
-
-                <h2>
-                    ¿Qué quieres compartir?
-                </h2>
-
-                <p>
-                    Tu publicación será completamente anónima.
-                </p>
+                    <p>
+                        Los mensajes publicados aquí son visibles para toda la comunidad.
+                    </p>
+                </div>
 
             </div>
 
 
-            <form action="/buzon" method="POST">
+            <!-- ZONA DE MENSAJES -->
+
+            <div class="mensajes" id="mensajes">
+
+                {% if publicaciones %}
+
+                    {% for publicacion in publicaciones %}
+
+                        <article class="mensaje">
+
+                            <div class="mensaje-autor">
+
+                                <div class="avatar">
+                                    👤
+                                </div>
+
+                                <div class="autor-info">
+
+                                    <strong>Anónimo</strong>
+
+                                    <span>
+                                        {% if publicacion["tipo"] == "Sugerencia" %}
+                                            💡 Sugerencia
+                                        {% elif publicacion["tipo"] == "Felicitación" %}
+                                            ⭐ Felicitación
+                                        {% elif publicacion["tipo"] == "Duda" %}
+                                            ❓ Duda
+                                        {% elif publicacion["tipo"] == "Reporte" %}
+                                            📢 Reporte
+                                        {% else %}
+                                            📬 Comunidad
+                                        {% endif %}
+                                    </span>
+
+                                </div>
+
+                            </div>
 
 
-                <div class="campo">
+                            <p class="mensaje-texto">
+                                {{ publicacion["mensaje"] }}
+                            </p>
 
-                    <label for="tipo">
-                        Tipo de publicación
-                    </label>
 
-                    <select
-                        id="tipo"
-                        name="tipo"
-                        required
-                    >
+                            <div class="mensaje-hora">
+                                {{ publicacion["fecha"] }}
+                            </div>
+
+                        </article>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <div class="sin-mensajes">
+
+                        <div>💬</div>
+
+                        <strong>
+                            Todavía no hay mensajes
+                        </strong>
+
+                        <span>
+                            Sé el primero en escribir.
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- ZONA PARA ESCRIBIR -->
+
+            <div class="escribir">
+
+                <form action="/buzon" method="POST">
+
+                    <select name="tipo" required>
 
                         <option value="">
-                            Selecciona una opción
+                            Tipo
                         </option>
 
                         <option value="Sugerencia">
@@ -127,194 +174,59 @@
 
                     </select>
 
-                </div>
-
-
-                <div class="campo">
-
-                    <label for="mensaje">
-                        Mensaje
-                    </label>
 
                     <textarea
-                        id="mensaje"
                         name="mensaje"
-                        rows="6"
                         maxlength="1000"
-                        placeholder="Escribe tu mensaje..."
+                        rows="1"
+                        placeholder="Escribe un mensaje..."
                         required
                     ></textarea>
 
-                    <small>
-                        Máximo 1000 caracteres.
-                    </small>
 
-                </div>
+                    <button type="submit" title="Publicar mensaje">
+                        ➤
+                    </button>
 
-
-                <div class="anonimo-info">
-
-                    👤 <strong>Publicación anónima</strong>
-
-                    <span>
-                        No se mostrará tu nombre.
-                    </span>
-
-                </div>
+                </form>
 
 
-                <div class="aviso">
-
-                    <strong>
-                        🛡️ Espacio de convivencia
-                    </strong>
-
-                    <p>
-                        Publica con respeto. No compartas datos personales,
-                        amenazas, insultos ni acusaciones contra otras personas.
-                    </p>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="enviar-btn"
-                >
-                    📤 Publicar mensaje
-                </button>
-
-            </form>
-
-        </section>
-
-
-
-        <!-- PUBLICACIONES -->
-
-        <section class="publicaciones">
-
-            <div class="publicaciones-header">
-
-                <div>
-
-                    <span class="etiqueta-publicaciones">
-                        COMUNIDAD ESCOLAR
-                    </span>
-
-                    <h2>
-                        Publicaciones
-                    </h2>
-
-                </div>
-
-                <span class="contador">
-                    {{ publicaciones|length }}
-                    publicación{% if publicaciones|length != 1 %}es{% endif %}
-                </span>
+                <small>
+                    👤 Publicación anónima · Respeta a la comunidad
+                </small>
 
             </div>
 
-
-            {% if publicaciones %}
-
-                <div class="muro">
-
-                    {% for publicacion in publicaciones %}
-
-                        <article class="publicacion">
-
-                            <div class="publicacion-top">
-
-                                <span class="tipo-publicacion">
-
-                                    {% if publicacion["tipo"] == "Sugerencia" %}
-                                        💡 Sugerencia
-
-                                    {% elif publicacion["tipo"] == "Felicitación" %}
-                                        ⭐ Felicitación
-
-                                    {% elif publicacion["tipo"] == "Duda" %}
-                                        ❓ Duda
-
-                                    {% elif publicacion["tipo"] == "Reporte" %}
-                                        📢 Reporte
-
-                                    {% else %}
-                                        📬 Publicación
-                                    {% endif %}
-
-                                </span>
-
-
-                                <span class="anonimo">
-
-                                    👤 Anónimo
-
-                                </span>
-
-                            </div>
-
-
-                            <p class="mensaje">
-
-                                {{ publicacion["mensaje"] }}
-
-                            </p>
-
-
-                            <div class="publicacion-footer">
-
-                                <span>
-                                    🕒 {{ publicacion["fecha"] }}
-                                </span>
-
-                            </div>
-
-                        </article>
-
-                    {% endfor %}
-
-                </div>
-
-            {% else %}
-
-                <div class="sin-publicaciones">
-
-                    <div>
-                        💬
-                    </div>
-
-                    <h3>
-                        Todavía no hay publicaciones
-                    </h3>
-
-                    <p>
-                        Sé la primera persona en compartir algo con la comunidad.
-                    </p>
-
-                </div>
-
-            {% endif %}
-
         </section>
-
 
     </main>
 
 
-    <footer class="buzon-footer">
+    <script>
 
-        <p>
-            Colegio de Bachilleres del Estado de Guerrero
-        </p>
+        const mensajes = document.getElementById("mensajes");
 
-        <span>
-            Plantel Número 29 · CCT 12ECB0051C
-        </span>
+        if (mensajes) {
+            mensajes.scrollTop = mensajes.scrollHeight;
+        }
 
-    </footer>
 
+        const textarea = document.querySelector(".escribir textarea");
+
+        if (textarea) {
+
+            textarea.addEventListener("input", function () {
+
+                this.style.height = "auto";
+
+                this.style.height =
+                    Math.min(this.scrollHeight, 120) + "px";
+
+            });
+
+        }
+
+    </script>
 
 </body>
 
