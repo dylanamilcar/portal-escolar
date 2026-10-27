@@ -1,236 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Buzón | Plantel 29</title>
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}"
-    >
-
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/buzon.css') }}"
-    >
-</head>
-
-<body>
-
-    <!-- ENCABEZADO -->
-
-    <header class="canal-header">
-
-        <a href="/" class="canal-identidad">
-
-            <img
-                src="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}"
-                alt="Plantel 29"
-            >
-
-            <div>
-                <strong>Buzón Plantel 29</strong>
-                <span>Canal de la comunidad escolar</span>
-            </div>
-
-        </a>
-
-        <a href="/" class="volver">
-            Inicio
-        </a>
-
-    </header>
-
-
-    <!-- TARJETA PRINCIPAL -->
-
-    <main class="buzon-contenedor">
-
-        <section class="chat">
-
-            <!-- INFORMACIÓN DEL CANAL -->
-
-            <div class="chat-info">
-
-                <div class="chat-logo">
-                    📢
-                </div>
-
-                <div>
-                    <h1>Buzón Plantel 29</h1>
-
-                    <p>
-                        Los mensajes publicados aquí son visibles para toda la comunidad.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <!-- ZONA DE MENSAJES -->
-
-            <div class="mensajes" id="mensajes">
-
-                {% if publicaciones %}
-
-                    {% for publicacion in publicaciones %}
-
-                        <article class="mensaje">
-
-                            <div class="mensaje-autor">
-
-                                <div class="avatar">
-                                    👤
-                                </div>
-
-                                <div class="autor-info">
-
-                                    <strong>Anónimo</strong>
-
-                                    <span>
-                                        {% if publicacion["tipo"] == "Sugerencia" %}
-                                            💡 Sugerencia
-                                        {% elif publicacion["tipo"] == "Felicitación" %}
-                                            ⭐ Felicitación
-                                        {% elif publicacion["tipo"] == "Duda" %}
-                                            ❓ Duda
-                                        {% elif publicacion["tipo"] == "Reporte" %}
-                                            📢 Reporte
-                                        {% else %}
-                                            📬 Comunidad
-                                        {% endif %}
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-
-                            <p class="mensaje-texto">
-                                {{ publicacion["mensaje"] }}
-                            </p>
-
-
-                            <div class="mensaje-hora">
-                                {{ publicacion["fecha"] }}
-                            </div>
-
-                        </article>
-
-                    {% endfor %}
-
-                {% else %}
-
-                    <div class="sin-mensajes">
-
-                        <div>💬</div>
-
-                        <strong>
-                            Todavía no hay mensajes
-                        </strong>
-
-                        <span>
-                            Sé el primero en escribir.
-                        </span>
-
-                    </div>
-
-                {% endif %}
-
-            </div>
-
-
-            <!-- ZONA PARA ESCRIBIR -->
-
-            <div class="escribir">
-
-                <form action="/buzon" method="POST">
-
-                    <select name="tipo" required>
-
-                        <option value="">
-                            Tipo
-                        </option>
-
-                        <option value="Sugerencia">
-                            💡 Sugerencia
-                        </option>
-
-                        <option value="Felicitación">
-                            ⭐ Felicitación
-                        </option>
-
-                        <option value="Duda">
-                            ❓ Duda
-                        </option>
-
-                        <option value="Reporte">
-                            📢 Reporte
-                        </option>
-
-                    </select>
-
-
-                    <textarea
-                        name="mensaje"
-                        maxlength="1000"
-                        rows="1"
-                        placeholder="Escribe un mensaje..."
-                        required
-                    ></textarea>
-
-
-                    <button type="submit" title="Publicar mensaje">
-                        ➤
-                    </button>
-
-                </form>
-
-
-                <small>
-                    👤 Publicación anónima · Respeta a la comunidad
-                </small>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <script>
-    const mensajes = document.getElementById("mensajes");
-
-    function bajarAlUltimoMensaje() {
-        if (mensajes) {
-            mensajes.scrollTop = mensajes.scrollHeight;
-        }
-    }
-
-    // Al abrir el buzón
-    bajarAlUltimoMensaje();
-
-
-    const textarea = document.querySelector(".escribir textarea");
-
-    if (textarea) {
-
-        textarea.addEventListener("input", function () {
-
-            this.style.height = "auto";
-
-            this.style.height =
-                Math.min(this.scrollHeight, 120) + "px";
-
-        });
-
-    }
-    </script>
-
-</body>
-
-</html>
+{% extends "base.html" %}
+{% block title %}Buzón | Plantel 29{% endblock %}
+{% block content %}
+<section class="buzon-page">
+    <div class="buzon-top"><div><p>PARTICIPACIÓN</p><h1>📢 Buzón</h1><span>Comparte comentarios, sugerencias o avisos de forma anónima.</span></div></div>
+    <div class="buzon-board" id="buzon-board">
+        {% if publicaciones %}
+            {% for publicacion in publicaciones %}
+            <article class="message-card"><span>{{ publicacion.tipo }}</span><p>{{ publicacion.mensaje }}</p><small>{{ publicacion.fecha }}</small></article>
+            {% endfor %}
+        {% else %}
+            <div class="empty-message">Todavía no hay publicaciones.</div>
+        {% endif %}
+    </div>
+    <form class="buzon-form" method="POST">
+        <select name="tipo" required>
+            <option value="" disabled selected>Tipo de mensaje</option>
+            <option value="Sugerencia">Sugerencia</option>
+            <option value="Aviso">Aviso</option>
+            <option value="Comentario">Comentario</option>
+        </select>
+        <textarea name="mensaje" maxlength="500" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit">Publicar</button>
+    </form>
+</section>
+{% endblock %}

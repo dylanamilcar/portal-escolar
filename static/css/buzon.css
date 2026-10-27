@@ -231,20 +231,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
     gap: 10px;
 
     overflow-y: auto;
     scroll-behavior: smooth;
-    overscroll-behavior-y: contain;
-
-    background:
-        linear-gradient(
-            rgba(233,238,243,.94),
-            rgba(233,238,243,.94)
-        );
 }
-
 /* BARRA DE SCROLL */
 
 .mensajes::-webkit-scrollbar {

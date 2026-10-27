@@ -1,42 +1,21 @@
-function mostrarMensaje() {
-    alert(
-        "Aquí colocaremos próximamente toda la información para aspirantes."
-    );
-}
-
-// INTRO DE ENTRADA
-setTimeout(function () {
-    const intro = document.getElementById("intro-video");
-
+document.addEventListener('DOMContentLoaded', () => {
+    const intro = document.getElementById('intro-video');
     if (intro) {
-        intro.classList.add("intro-oculta");
+        setTimeout(() => {
+    intro.classList.add("oculto");
+}, 700);
     }
-}, 3000);
 
+    const board = document.getElementById('buzon-board');
+    if (board) board.scrollTop = board.scrollHeight;
 
-// =========================================
-// BUZÓN FLOTANTE AL HACER SCROLL
-// =========================================
-
-const buzonOriginal = document.querySelector('a[href="/buzon"]');
-
-if (buzonOriginal) {
-
-    const buzonFlotante = document.createElement("a");
-
-    buzonFlotante.href = "/buzon";
-    buzonFlotante.className = "buzon-flotante";
-    buzonFlotante.innerHTML = "📬 Buzón";
-
-    document.body.appendChild(buzonFlotante);
-
-    window.addEventListener("scroll", function () {
-
-        if (window.scrollY > 250) {
-            buzonFlotante.classList.add("buzon-visible");
-        } else {
-            buzonFlotante.classList.remove("buzon-visible");
-        }
-
-    });
-}
+    const notification = document.getElementById('buzon-notificacion');
+    if (notification) {
+        const lastSeen = Number(localStorage.getItem('buzonUltimoVisto') || 0);
+        const current = Number(document.body.dataset.ultimoMensaje || 0);
+        if (current > lastSeen) notification.textContent = ' NUEVO';
+        document.querySelectorAll('a[href$="/buzon"]').forEach(link => {
+            link.addEventListener('click', () => localStorage.setItem('buzonUltimoVisto', String(current)));
+        });
+    }
+});

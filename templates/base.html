@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bachilleres Plantel 29{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+</head>
+<body>
+    <header class="sub-header">
+        <a class="brand" href="{{ url_for('inicio') }}">
+            <img src="{{ url_for('static', filename='images/escuela/logo.png') }}" alt="Logo Plantel 29">
+            <span><b>COLEGIO DE BACHILLERES</b><small>PLANTEL 29</small></span>
+        </a>
+        <a class="back-menu" href="{{ url_for('inicio') }}">← Menú principal</a>
+    </header>
+
+    <main class="page-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="page-footer">© 2026 Colegio de Bachilleres del Estado de Guerrero · Plantel Número 29</footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
