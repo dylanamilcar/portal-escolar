@@ -3,57 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Bachilleres Plantel 29</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+
+    <link rel="icon"
+          type="image/png"
+          href="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/site.css') }}">
 </head>
+
 <body class="home" data-ultimo-mensaje="{{ ultimo_mensaje }}">
+
+    <!-- =========================
+         INTRO
+    ========================== -->
     <div id="intro-video">
+
         <div class="intro-content">
-            <img class="intro-logo" src="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}" alt="Logo">
+
+            <img
+                class="intro-logo"
+                src="{{ url_for('static', filename='images/escuela/logo-favicon.png') }}"
+                alt="Logo Colegio de Bachilleres">
+
             <h1>COLEGIO DE BACHILLERES</h1>
+
             <p>PLANTEL 29</p>
+
             <div class="intro-loader"></div>
+
             <span>Preparando la experiencia...</span>
+
         </div>
+
     </div>
 
+
+    <!-- =========================
+         MENÚ PRINCIPAL
+    ========================== -->
     <main class="home-menu">
+
+        <!-- ENCABEZADO -->
         <div class="menu-heading">
-            <img src="{{ url_for('static', filename='images/escuela/logo.png') }}" alt="Logo Plantel 29">
+
+            <img
+                src="{{ url_for('static', filename='images/escuela/logo.png') }}"
+                alt="Logo Plantel 29">
+
             <div>
-                <p>COLEGIO DE BACHILLERES DEL ESTADO DE GUERRERO</p>
+
+                <p>
+                    COLEGIO DE BACHILLERES DEL ESTADO DE GUERRERO
+                </p>
+
                 <h1>Plantel Número 29</h1>
-                <span>Selecciona una sección para comenzar</span>
+
+                <span>
+                    Selecciona una sección para comenzar
+                </span>
+
             </div>
+
         </div>
 
+
+        <!-- TARJETAS -->
         <div class="menu-grid">
-            <a class="menu-card" href="{{ url_for('escuela') }}"><span>🏫</span><b>La escuela</b><small>Historia, identidad y quiénes somos</small></a>
-            <a class="menu-card" href="{{ url_for('oferta') }}"><span>🎓</span><b>Oferta educativa</b><small>TICs, Turismo e Inglés</small></a>
-            <a class="menu-card" href="{{ url_for('programas') }}"><span>🤝</span><b>Programas</b><small>Becas y apoyos estudiantiles</small></a>
-            <a class="menu-card" href="{{ url_for('instalaciones') }}"><span>🏢</span><b>Instalaciones</b><small>Conoce nuestros espacios</small></a>
-            <a class="menu-card" href="{{ url_for('actividades') }}"><span>🏀</span><b>Actividades</b><small>Deporte y cultura</small></a>
-            <a class="menu-card" href="{{ url_for('noticias') }}"><span>📰</span><b>Noticias</b><small>Avisos y eventos del plantel</small></a>
-            <a class="menu-card menu-card-buzon" href="{{ url_for('buzon') }}"><span>📢</span><b>Buzón</b><small>Participa de forma anónima</small><i id="buzon-notificacion"></i></a>
+
+            <!-- LA ESCUELA -->
+            <a
+                class="menu-card"
+                href="{{ url_for('escuela') }}"
+            >
+                <span>🏫</span>
+
+                <b>La escuela</b>
+
+                <small>
+                    Historia, identidad y quiénes somos
+                </small>
+            </a>
+
+
+            <!-- OFERTA EDUCATIVA -->
+            <a
+                class="menu-card"
+                href="{{ url_for('oferta') }}"
+            >
+                <span>🎓</span>
+
+                <b>Oferta educativa</b>
+
+                <small>
+                    TICs, Turismo e Inglés
+                </small>
+            </a>
+
+
+            <!-- PROGRAMAS -->
+            <a
+                class="menu-card"
+                href="{{ url_for('programas') }}"
+            >
+                <span>🤝</span>
+
+                <b>Programas</b>
+
+                <small>
+                    Becas y apoyos estudiantiles
+                </small>
+            </a>
+
+
+            <!-- INSTALACIONES -->
+            <a
+                class="menu-card"
+                href="{{ url_for('instalaciones') }}"
+            >
+                <span>🏢</span>
+
+                <b>Instalaciones</b>
+
+                <small>
+                    Conoce nuestros espacios
+                </small>
+            </a>
+
+
+            <!-- ACTIVIDADES -->
+            <a
+                class="menu-card"
+                href="{{ url_for('actividades') }}"
+            >
+                <span>🏀</span>
+
+                <b>Actividades</b>
+
+                <small>
+                    Deporte y cultura
+                </small>
+            </a>
+
+
+            <!-- NOTICIAS -->
+            <a
+                class="menu-card"
+                href="{{ url_for('noticias') }}"
+            >
+                <span>📰</span>
+
+                <b>Noticias</b>
+
+                <small>
+                    Avisos y eventos del plantel
+                </small>
+            </a>
+
+
+            <!-- BUZÓN -->
+            <a
+                class="menu-card menu-card-buzon"
+                href="{{ url_for('buzon') }}"
+            >
+
+                <span>📢</span>
+
+                <b>Buzón</b>
+
+                <small>
+                    Participa de forma anónima
+                </small>
+
+                <i id="buzon-notificacion"></i>
+
+            </a>
+
         </div>
 
-        <p class="menu-footer">Orgullosamente Bachilleres 💚💙</p>
     </main>
-   <script>
-    window.addEventListener("load", function () {
-        const intro = document.getElementById("intro-video");
 
-        if (sessionStorage.getItem("introMostrada")) {
-            intro.classList.add("intro-oculta");
-            return;
-        }
 
-        setTimeout(function () {
-            intro.classList.add("intro-oculta");
-            sessionStorage.setItem("introMostrada", "true");
-        }, 800);
-    });
-</script>
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+    <footer class="menu-footer">
+
+        <!-- UBICACIÓN -->
+        <div class="footer-location">
+
+            <span>📍</span>
+
+            <div>
+
+                <b>Ubicación</b>
+
+                <p>
+                    Acapulco de Juárez, Guerrero, México
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- REDES SOCIALES -->
+        <div class="footer-social">
+
+            <div>
+
+                <b>Redes sociales</b>
+
+                <div class="social-links">
+
+                    <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        📘 Facebook
+                    </a>
+
+                    <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        📸 Instagram
+                    </a>
+
+                    <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🎵 TikTok
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT / FRASE -->
+        <div class="footer-copy">
+            Orgullosamente Bachilleres 💚💙
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         INTRO UNA VEZ POR SESIÓN
+    ========================== -->
+    <script>
+
+        window.addEventListener("load", function () {
+
+            const intro =
+                document.getElementById("intro-video");
+
+            if (!intro) return;
+
+
+            // Si ya se mostró durante esta sesión,
+            // se oculta inmediatamente.
+            if (sessionStorage.getItem("introMostrada")) {
+
+                intro.classList.add("intro-oculta");
+
+                return;
+            }
+
+
+            // Primera entrada a la página.
+            setTimeout(function () {
+
+                intro.classList.add("intro-oculta");
+
+                sessionStorage.setItem(
+                    "introMostrada",
+                    "true"
+                );
+
+            }, 1000);
+
+        });
+
+
+        // =========================
+        // NOTIFICACIÓN DEL BUZÓN
+        // =========================
+
+        window.addEventListener("load", function () {
+
+            const notificacion =
+                document.getElementById("buzon-notificacion");
+
+            const ultimoMensaje =
+                document.body.dataset.ultimoMensaje;
+
+            if (
+                notificacion &&
+                ultimoMensaje &&
+                ultimoMensaje !== "None" &&
+                ultimoMensaje !== "0"
+            ) {
+
+                notificacion.textContent = "●";
+
+            }
+
+        });
+
+    </script>
+
 </body>
 </html>
